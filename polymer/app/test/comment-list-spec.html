@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>paper-toolbar basic tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../../bower_components/web-component-tester/browser.js"></script>
+    <script src="../../bower_components/test-fixture/test-fixture-mocha.js"></script>
+    <link rel="import" href="../elements/CommentList/CommentList.html">
+    <link rel="import" href="../../bower_components/test-fixture/test-fixture.html">
+
+</head>
+<body>
+
+<test-fixture id="multipleComments">
+    <template>
+        <comment-list data='[{"author": "John", "msg": "h"}, {"author": "Bob", "msg" : "2"}]'></comment-list>
+    </template>
+</test-fixture>
+
+<test-fixture id="noComments">
+  <template>
+    <comment-list data='[]'></comment-list>
+  </template>
+</test-fixture>
+
+<script>
+
+    suite('<comment-list>', function(){
+
+        var element;
+
+        setup(function(){
+            multipleElements = fixture('multipleComments');
+            noElements = fixture('noComments');
+        });
+
+      test('should render the comments', function(done) {
+        flush(function(){
+          var comments = multipleElements.querySelectorAll('comment-model');
+          assert.equal(comments.length, 2);
+          done()
+        });
+      });
+
+      test('should render  - No Comments yet - msg if the data is empty', function(done){
+        flush(function(){
+          var msg = noElements.textContent;
+          assert.notStrictEqual(msg, 'No comments yet');
+          done()
+        });
+      });
+
+      test('should not render any comment if the data is empty', function(done){
+        flush(function(){
+          var comments = noElements.querySelectorAll('comment-model');
+          assert.equal(comments.length, 0);
+          done()
+        });
+      });
+
+    });
+
+
+</script>
+
+</body>
+</html>
