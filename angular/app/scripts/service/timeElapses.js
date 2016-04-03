@@ -44,20 +44,16 @@ angular.module('timeElapseService', [])
     myfunctions.calculate = function (currTime, rowTime) {
       // converting into seconds :
       var seconds = Math.round((currTime - rowTime) / 1000);
-      if (seconds < 59) {
+      if (seconds <= 59) {
         return '1 minute ago'
-      }
-      if (seconds > 59 && seconds < 3599) {
+      } else if (seconds > 59 && seconds <= 3599) {
         return Math.floor(seconds / 60) + " minuts ago";
-      }
-
-      if (seconds > 3599 && seconds < 86340) {
+      } else if (seconds > 3599 && seconds <= 86399) {
         return Math.floor(seconds / 3600) + " hours ago";
-      }
-
-      if (seconds > 86400) {
+      } else if (seconds >= 86400) {
         return Math.floor(seconds / 86400) + " days ago";
       }
+
 
     };
 
