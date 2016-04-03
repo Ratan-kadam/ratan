@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular.module('angularApp', ['comment','commentList', 'commentForm', 'commentBox'])
+angular.module('angularApp', ['comment','commentList', 'commentForm', 'commentBox', 'timeElapseService'])
   .run(function($rootScope){
     $rootScope.comments = [{'author': 'Santiago', 'msg': 'Msg 1', id: 1},{'author': 'Pablo', 'msg': 'Msg 2', id: 2}];
   });
