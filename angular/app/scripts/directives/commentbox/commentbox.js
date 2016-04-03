@@ -11,7 +11,7 @@ angular.module('commentBox', ['commentList', 'commentForm'])
     return {
       template: '<div class="commentBox">' +
       '<h1>Comments</h1>' +
-      '<comment-list comments="data" co="arr"></comment-list>' +
+      '<comment-list comments="data"></comment-list>' +
       '<comment-form></comment-form>' +
       '</div>',
       restrict: 'E',
@@ -25,7 +25,6 @@ angular.module('commentBox', ['commentList', 'commentForm'])
             .success(function (data, status, headers, config) {
               timeElapseService.HandleUI(data);
               scope.data = timeElapseService.scope.data;
-              timeElapseService.sample();
             })
             .error(function (data, status, headers, config) {
               console.log(status);

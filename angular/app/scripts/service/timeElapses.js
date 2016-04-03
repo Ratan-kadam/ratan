@@ -9,8 +9,6 @@ angular.module('timeElapseService', [])
 
 
     myfunctions.HandleUI = function (data) {
-      //
-      console.log("xxxx");
       var scopeLen = 0;
       var newdata = [];
       /* Converting received data in array if received data is not array */

@@ -4,10 +4,11 @@ describe('Directive: commentbox', function () {
 
   // load the directive's module
   beforeEach(module('commentBox'));
+  beforeEach(module('timeElapseService'));
 
   var element, scope, httpBackend;
 
-  beforeEach(inject(function ($rootScope, $compile, $httpBackend) {
+  beforeEach(inject(function ($rootScope, $compile, $httpBackend, timeElapseService) {
     httpBackend = $httpBackend;
     httpBackend.when('GET', 'http://localhost:2403/comments/').respond({author: 'Santiago', msg: 'Msg 1', id:1});
     scope = $rootScope.$new();
