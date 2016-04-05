@@ -40,6 +40,7 @@ angular.module('timeElapseService', [])
         return row;
       });
       //
+      return myfunctions.scope.data;
     };
     myfunctions.calculate = function (currTime, rowTime) {
       // converting into seconds :
