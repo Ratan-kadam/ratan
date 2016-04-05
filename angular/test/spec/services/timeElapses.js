@@ -10,9 +10,9 @@ describe('timeElapses:Service', function () {
   beforeEach(module('commentForm'));
 
   var element, scope, time,
-    arr=[{author: 'Santiago', msg: 'Msg 1', id: 1, timeStamp: '16896 days ago'},
-          {author: 'Santiago', msg: 'Msg 1', id: 1, timeStamp: '16896 days ago'},
-          {author: 'Santiago', msg: 'Msg 1', id: 1, timeStamp: '16896 days ago'}],
+    arr=[{author: 'Santiago', msg: 'Msg 1', id: 1, timeStamp: '1 days ago'},
+          {author: 'ratan', msg: 'Msg 2', id: 2, timeStamp: '9 days ago'},
+          {author: 'kadam', msg: 'Msg 3', id: 3, timeStamp: '6 days ago'}],
     currentTime = 1459848381557,
     RowTime = 1459666800000;
 
